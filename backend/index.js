@@ -15,11 +15,13 @@ app.post("/convert-to-pdf", async (req, res) => {
     const { url } = req.body;
 
     if (!url) {
-        return res.status(400).send("URL is required");
+        return res.status(400).json({ error: "URL is required" });
     }
 
     try {
-        const browser = await puppeteer.launch();
+        const browser = await puppeteer.launch({
+            headless: "new"
+        });
         const page = await browser.newPage();
         await page.goto(url, { waitUntil: "domcontentloaded" });
 
@@ -28,9 +30,10 @@ app.post("/convert-to-pdf", async (req, res) => {
         fs.writeFileSync(pdfPath, pdfBuffer);
         await browser.close();
 
-        res.status(200).send({ pdfPath });
+        res.status(200).json({ pdfPath });
     } catch (err) {
-        res.status(500).send("Error converting to PDF");
+        console.error("Error converting to PDF:", err);
+        res.status(500).json({ error: "Error converting to PDF", details: err.message });
     }
 });
 
@@ -39,11 +42,13 @@ app.post("/convert-to-markdown", async (req, res) => {
     const { url } = req.body;
 
     if (!url) {
-        return res.status(400).send("URL is required");
+        return res.status(400).json({ error: "URL is required" });
     }
 
     try {
-        const browser = await puppeteer.launch();
+        const browser = await puppeteer.launch({
+            headless: "new"
+        });
         const page = await browser.newPage();
         await page.goto(url, { waitUntil: "domcontentloaded" });
 
@@ -54,9 +59,10 @@ app.post("/convert-to-markdown", async (req, res) => {
         fs.writeFileSync(markdownPath, markdown);
         await browser.close();
 
-        res.status(200).send({ markdownPath });
+        res.status(200).json({ markdownPath });
     } catch (err) {
-        res.status(500).send("Error converting to Markdown");
+        console.error("Error converting to Markdown:", err);
+        res.status(500).json({ error: "Error converting to Markdown", details: err.message });
     }
 });
 
