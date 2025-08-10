@@ -124,6 +124,15 @@ This project is licensed under the MIT License.
 
 ---
 
+## Contributing
+
+Open source contributions are welcome!  
+Feel free to open issues or submit pull requests to improve the project.
+
+If you have ideas, suggestions, or want to collaborate, reach out at [kkishlay502@gmail.com](mailto:kkishlay502@gmail.com).
+
+---
+
 ## LinkedIn Post (Humanized, No Emojis)
 
 > Excited to share a project I’ve been working on – **Offline Cache Vault**.  
@@ -139,5 +148,6 @@ This project is licensed under the MIT License.
 >
 > Looking forward to refining this further and exploring features like scheduled offline saving and better styling for markdown exports.  
 >
-> Feedback and suggestions are always welcome.
+> Feedback and suggestions are always welcome.  
+> Open source contributors are invited! Contact me at kkishlay502@gmail.com.
 
