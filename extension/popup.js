@@ -10,7 +10,7 @@ document.getElementById("savePdfBtn").addEventListener("click", async () => {
         })
             .then(response => response.json())
             .then(data => alert("PDF saved at: " + data.pdfPath))
-            .catch(error => alert("Error: " + error.message));
+            .catch(error => alert("Err: " + error.message));
     });
 });
 
